@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="myApp"></html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class='container' ng-controller='usersCtrl'>
+        <div class ="col-sm-8 col-sm-offset-2">
+            <div class="page-header">
+                <h1>Système de réservation en ligne</h1>
+            </div>
+                <form method="post">
+                    <div class=form-header>
+                        <strong>DÉTAIL DU SÉJOUR</strong>
+                    </div>
+                    <br>
+                    <div class='col-sm-4'>
+                        <div class='form-group'>
+                            <label>
+                               <input type="radio" ng-model="umontant" value="30"> 2h - 30€
+                           </label><br>
+                            <label>
+                               <input type="radio" ng-model="umontant" value="40"> Demi-journée - 40€
+                           </label><br>
+                             <label>
+                               <input type="radio" ng-model="umontant" value="70"> Journée - 70€
+                             </label><br>
+                             <label>
+                               <input type="radio" ng-model="umontant" value="160"> 2 jours - 160€
+                             </label><br>
+                             <label>
+                               <input type="radio" ng-model="umontant" value="240"> 3 jours - 240€
+                             </label><br>
+                             <label>
+                               <input type="radio" ng-model="umontant" value="320"> 4 jours - 320€
+                             </label><br>
+                             <label>
+                               <input type="radio" ng-model="umontant" value="400"> 5 jours - 400€
+                             </label><br>
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        <label>Nombres de personnes :
+                            <input type="number" ng-model="unbpersonne" min="1" max="8" required>
+                        </label>
+                        <br><br>
+                        <strong>Prix total TTC de le réservation </strong>   {{ umontant * unbpersonne | currency:"€ "}}
+                    </div>
+        </div>
+            <div class ="col-sm-8 col-sm-offset-2">
+                    <div><br>
+                        <strong>COORDONNÉES</strong>
+                    </div>
+                    <br>
+                    <div class='form-group'>
+                        <label>Nom</label>
+                        <input type = 'text' name = 'unom' class = 'form-control' ng-model = 'unom' required>
+                    </div>
+                    <div class='form-group'>
+                        <label>Prénom</label>
+                        <input type = 'text' name = 'uprenom' class = 'form-control' ng-model = 'uprenom' required>
+                    </div>
+                    <div class = 'form-group'>
+                        <label>Adresse email</label>
+                        <input type = 'email' name = 'uemail' class = 'form-control' ng-model = 'uemail' required>
+                    </div>
+                    <div class = 'form-group'>
+                        <label>Téléphone</label>
+                        <input type = 'text' class = 'form-control' ng-model = 'utel' required>
+                    </div>
+                    <div class = 'form-group'>
+                        <label>Adresse</label>
+                        <input type = 'text' class = 'form-control' ng-model = 'uadresse' required>
+                    </div>
+                    <div class = 'form-group'>
+                        <label>Code postal</label>
+                        <input type = 'text' class = 'form-control' ng-model = 'ucp' required>
+                    </div>
+                    <div class = 'form-group'>
+                        <label>Ville</label>
+                        <input type = 'text' class = 'form-control' ng-model = 'uville' required>
+                    </div>
+                    <button type = 'submit' class = 'btn btn-primary' ng-click='insertData()'>Réserver</button>
+                </form>
+            <br>
+            <div><br>
+                <strong><a href="http://localhost:8888/DEVELOPPEMENT/form_ddays/allUsers.html" style="margin-top:40px;">Liste des réservations</a></strong>
+            </div>
+        </div>
+
+    </div>
+<script type="text/javascript" src="vendor/angular.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/controllers/main.js"></script>
+</body>
+</hmtl>
